@@ -1,0 +1,754 @@
+{
+  "stops": {
+    "scott": {
+      "routes": [
+        "a",
+        "ee",
+        "f",
+        "h",
+        "lx",
+        "s",
+        "w1",
+        "wknd1",
+        "wknd2"
+      ],
+      "queries": {},
+      "title": "Scott Hall",
+      "campus": "College Ave Campus",
+      "lat": "40.49957",
+      "lon": "-74.44824",
+      "stopId": "1055"
+    },
+    "stuactcntr": {
+      "routes": [
+        "a",
+        "ee",
+        "f",
+        "h",
+        "lx",
+        "s",
+        "w2",
+        "wknd1"
+      ],
+      "queries": {},
+      "title": "Student Activities Center",
+      "campus": "College Ave Campus",
+      "lat": "40.5040199",
+      "lon": "-74.4490599",
+      "stopId": "1001"
+    },
+    "lot48a": {
+      "routes": [
+        "a",
+        "s",
+        "wknd1"
+      ],
+      "queries": {},
+      "title": "Visitor Center",
+      "campus": "Busch Campus",
+      "lat": "40.51514",
+      "lon": "-74.4619198",
+      "stopId": "1071"
+    },
+    "stadium_a": {
+      "routes": [
+        "a",
+        "c",
+        "h"
+      ],
+      "queries": {},
+      "title": "Stadium",
+      "campus": "Busch Campus",
+      "lat": "40.51442",
+      "lon": "-74.46618",
+      "stopId": "1024"
+    },
+    "werblinback": {
+      "routes": [
+        "a",
+        "b",
+        "c",
+        "s",
+        "wknd1"
+      ],
+      "queries": {},
+      "title": "Werblin Back Entrance",
+      "campus": "Busch Campus",
+      "lat": "40.5186799",
+      "lon": "-74.4614699",
+      "stopId": "1003"
+    },
+    "hillw": {
+      "routes": [
+        "a",
+        "b",
+        "c",
+        "rexb",
+        "s",
+        "wknd1"
+      ],
+      "queries": {},
+      "title": "Hill Center",
+      "campus": "Busch Campus",
+      "lat": "40.5219199",
+      "lon": "-74.4632599",
+      "stopId": "1004"
+    },
+    "science": {
+      "routes": [
+        "a",
+        "b",
+        "s",
+        "wknd1"
+      ],
+      "queries": {},
+      "title": "Science Building",
+      "campus": "Busch Campus",
+      "lat": "40.5239347",
+      "lon": "-74.4642238",
+      "stopId": "1005"
+    },
+    "libofsciw": {
+      "routes": [
+        "a",
+        "s",
+        "wknd1"
+      ],
+      "queries": {},
+      "title": "Library of Science",
+      "campus": "Busch Campus",
+      "lat": "40.5261998",
+      "lon": "-74.4658297",
+      "stopId": "1006"
+    },
+    "buschse": {
+      "routes": [
+        "a",
+        "b",
+        "s",
+        "wknd1"
+      ],
+      "queries": {},
+      "title": "Busch Suites",
+      "campus": "Busch Campus",
+      "lat": "40.52583",
+      "lon": "-74.45872",
+      "stopId": "1007"
+    },
+    "busch_a": {
+      "routes": [
+        "a",
+        "b",
+        "h",
+        "s"
+      ],
+      "queries": {},
+      "title": "Busch Student Center",
+      "campus": "Busch Campus",
+      "lat": "40.5236",
+      "lon": "-74.45806",
+      "stopId": "1008"
+    },
+    "buells": {
+      "routes": [
+        "a"
+      ],
+      "queries": {},
+      "title": "Buell Apartments",
+      "campus": "Busch Campus",
+      "lat": "40.52181",
+      "lon": "-74.4567399",
+      "stopId": "1009"
+    },
+    "werblinm": {
+      "routes": [
+        "a",
+        "h"
+      ],
+      "queries": {},
+      "title": "Werblin Main Entrance",
+      "campus": "Busch Campus",
+      "lat": "40.51871",
+      "lon": "-74.4599799",
+      "stopId": "1022"
+    },
+    "rutgerss_a": {
+      "routes": [
+        "a",
+        "ee",
+        "f",
+        "h",
+        "lx",
+        "s",
+        "w1",
+        "w2"
+      ],
+      "queries": {},
+      "title": "College Avenue Student Center",
+      "campus": "College Ave Campus",
+      "lat": "40.5034221",
+      "lon": "-74.4521521",
+      "stopId": "1062"
+    },
+    "quads": {
+      "routes": [
+        "b",
+        "lx",
+        "s",
+        "wknd1",
+        "wknd2"
+      ],
+      "queries": {},
+      "title": "Quads",
+      "campus": "Livingston Campus",
+      "lat": "40.5198612",
+      "lon": "-74.4335688",
+      "stopId": "1030"
+    },
+    "libofsci": {
+      "routes": [
+        "b",
+        "h",
+        "wknd2"
+      ],
+      "queries": {},
+      "title": "Library of Science",
+      "campus": "Busch Campus",
+      "lat": "40.5261998",
+      "lon": "-74.4658297",
+      "stopId": "1006"
+    },
+    "beck": {
+      "routes": [
+        "b",
+        "lx",
+        "rexl",
+        "s",
+        "wknd1",
+        "wknd2"
+      ],
+      "queries": {},
+      "title": "Livingston Plaza",
+      "campus": "Livingston Campus",
+      "lat": "40.5251062",
+      "lon": "-74.4385837",
+      "stopId": "1028"
+    },
+    "livingston_a": {
+      "routes": [
+        "b",
+        "lx",
+        "rexl",
+        "s"
+      ],
+      "queries": {},
+      "title": "Livingston Student Center",
+      "campus": "Livingston Campus",
+      "lat": "40.5243131",
+      "lon": "-74.4363968",
+      "stopId": "1029"
+    },
+    "allison": {
+      "routes": [
+        "c",
+        "h",
+        "wknd2"
+      ],
+      "queries": {},
+      "title": "Allison Road Classrooms",
+      "campus": "Busch Campus",
+      "lat": "40.5235605",
+      "lon": "-74.4651893",
+      "stopId": "1041"
+    },
+    "hilln": {
+      "routes": [
+        "c",
+        "h",
+        "rexb",
+        "wknd2"
+      ],
+      "queries": {},
+      "title": "Hill Center",
+      "campus": "Busch Campus",
+      "lat": "40.5219024",
+      "lon": "-74.4632745",
+      "stopId": "1004"
+    },
+    "traine": {
+      "routes": [
+        "ee",
+        "h",
+        "lx",
+        "wknd1",
+        "wknd2"
+      ],
+      "queries": {},
+      "title": "Train Station",
+      "campus": "College Ave Campus",
+      "lat": "40.4981979",
+      "lon": "-74.445116",
+      "stopId": "1010"
+    },
+    "patersons": {
+      "routes": [
+        "ee",
+        "wknd2"
+      ],
+      "queries": {},
+      "title": "Paterson Street",
+      "campus": "College Ave Campus",
+      "lat": "40.495062",
+      "lon": "-74.443997",
+      "stopId": "1067"
+    },
+    "rockoff": {
+      "routes": [
+        "ee",
+        "wknd2"
+      ],
+      "queries": {},
+      "title": "Rockoff Hall",
+      "campus": "Douglass/Cook Campus",
+      "lat": "40.4918304",
+      "lon": "-74.4430403",
+      "stopId": "1043"
+    },
+    "pubsafs": {
+      "routes": [
+        "ee",
+        "f",
+        "rexb",
+        "rexl",
+        "s",
+        "wknd1",
+        "wknd2"
+      ],
+      "queries": {},
+      "title": "Public Safety Building South",
+      "campus": "Douglass/Cook Campus",
+      "lat": "40.4870501",
+      "lon": "-74.4398701",
+      "stopId": "1044"
+    },
+    "redoak_a": {
+      "routes": [
+        "ee",
+        "rexb",
+        "rexl",
+        "s"
+      ],
+      "queries": {},
+      "title": "Red Oak Lane",
+      "campus": "Douglass/Cook Campus",
+      "lat": "40.482988",
+      "lon": "-74.437542",
+      "stopId": "1011"
+    },
+    "lipman": {
+      "routes": [
+        "ee",
+        "f",
+        "rexb",
+        "rexl",
+        "s",
+        "wknd1",
+        "wknd2"
+      ],
+      "queries": {},
+      "title": "Lipman Hall",
+      "campus": "Douglass/Cook Campus",
+      "lat": "40.48127",
+      "lon": "-74.43629",
+      "stopId": "1047"
+    },
+    "foodsci": {
+      "routes": [
+        "ee",
+        "f",
+        "s",
+        "wknd1",
+        "wknd2"
+      ],
+      "queries": {},
+      "title": "Food Sciences Building",
+      "campus": "Douglass/Cook Campus",
+      "lat": "40.47891",
+      "lon": "-74.43571",
+      "stopId": "1012"
+    },
+    "biel": {
+      "routes": [
+        "ee",
+        "f",
+        "s",
+        "wknd1",
+        "wknd2"
+      ],
+      "queries": {},
+      "title": "Biel Road",
+      "campus": "Douglass/Cook Campus",
+      "lat": "40.4799995",
+      "lon": "-74.4325226",
+      "stopId": "1048"
+    },
+    "henders": {
+      "routes": [
+        "ee",
+        "f",
+        "s",
+        "wknd1",
+        "wknd2"
+      ],
+      "queries": {},
+      "title": "Henderson",
+      "campus": "Douglass/Cook Campus",
+      "lat": "40.4809499",
+      "lon": "-74.4287199",
+      "stopId": "1050"
+    },
+    "katzenbach": {
+      "routes": [
+        "ee",
+        "f",
+        "s",
+        "wknd1",
+        "wknd2"
+      ],
+      "queries": {},
+      "title": "Katzenbach",
+      "campus": "Douglass/Cook Campus",
+      "lat": "40.48304",
+      "lon": "-74.4315999",
+      "stopId": "1014"
+    },
+    "gibbons": {
+      "routes": [
+        "ee",
+        "f",
+        "s",
+        "wknd1",
+        "wknd2"
+      ],
+      "queries": {},
+      "title": "Gibbons",
+      "campus": "Douglass/Cook Campus",
+      "lat": "40.48523",
+      "lon": "-74.43194",
+      "stopId": "1051"
+    },
+    "college_a": {
+      "routes": [
+        "ee",
+        "f",
+        "rexb",
+        "rexl",
+        "s"
+      ],
+      "queries": {},
+      "title": "College Hall",
+      "campus": "Douglass/Cook Campus",
+      "lat": "40.4855099",
+      "lon": "-74.4371999",
+      "stopId": "1052"
+    },
+    "pubsafn": {
+      "routes": [
+        "ee",
+        "s",
+        "wknd1"
+      ],
+      "queries": {},
+      "title": "Public Safety Building North",
+      "campus": "Douglass/Cook Campus",
+      "lat": "40.4876259",
+      "lon": "-74.4402073",
+      "stopId": "1016"
+    },
+    "liberty": {
+      "routes": [
+        "ee",
+        "s",
+        "wknd1"
+      ],
+      "queries": {},
+      "title": "Liberty Street",
+      "campus": "Douglass/Cook Campus",
+      "lat": "40.4932471",
+      "lon": "-74.4433992",
+      "stopId": "1053"
+    },
+    "patersonn": {
+      "routes": [
+        "ee",
+        "s",
+        "wknd1"
+      ],
+      "queries": {},
+      "title": "Paterson Street",
+      "campus": "College Ave Campus",
+      "lat": "40.495286",
+      "lon": "-74.443878",
+      "stopId": "1054"
+    },
+    "trainn_a": {
+      "routes": [
+        "ee",
+        "s"
+      ],
+      "queries": {},
+      "title": "Train Station",
+      "campus": "College Ave Campus",
+      "lat": "40.4974894",
+      "lon": "-74.4444598",
+      "stopId": "1060"
+    },
+    "zimmerli": {
+      "routes": [
+        "ee",
+        "w2"
+      ],
+      "queries": {},
+      "title": "Zimmerli Arts Museum",
+      "campus": "College Ave Campus",
+      "lat": "40.4997074",
+      "lon": "-74.4450693",
+      "stopId": "1017"
+    },
+    "redoak": {
+      "routes": [
+        "f",
+        "wknd1",
+        "wknd2"
+      ],
+      "queries": {},
+      "title": "Red Oak Lane",
+      "campus": "Douglass/Cook Campus",
+      "lat": "40.48306",
+      "lon": "-74.43746",
+      "stopId": "1046"
+    },
+    "buel": {
+      "routes": [
+        "h"
+      ],
+      "queries": {},
+      "title": "Buell Apartments",
+      "campus": "Busch Campus",
+      "lat": "40.5218065",
+      "lon": "-74.4567012",
+      "stopId": "1009"
+    },
+    "davidson": {
+      "routes": [
+        "h",
+        "wknd2"
+      ],
+      "queries": {},
+      "title": "Davidson Hall",
+      "campus": "Busch Campus",
+      "lat": "40.5258793",
+      "lon": "-74.4586278",
+      "stopId": "1023"
+    },
+    "newstree": {
+      "routes": [
+        "rexb",
+        "rexl"
+      ],
+      "queries": {},
+      "title": "Bravo Supermarket",
+      "campus": "Douglass/Cook Campus",
+      "lat": "40.49138",
+      "lon": "-74.44264",
+      "stopId": "1037"
+    },
+    "allison_a": {
+      "routes": [
+        "rexb"
+      ],
+      "queries": {},
+      "title": "Allison Road Classrooms",
+      "campus": "Busch Campus",
+      "lat": "40.5236115",
+      "lon": "-74.4651274",
+      "stopId": "1036"
+    },
+    "rockhall": {
+      "routes": [
+        "rexb",
+        "rexl"
+      ],
+      "queries": {},
+      "title": "Rockoff Hall",
+      "campus": "College Ave Campus",
+      "lat": "40.491856",
+      "lon": "-74.4430933",
+      "stopId": "1043"
+    },
+    "traine_a": {
+      "routes": [
+        "s",
+        "w1",
+        "w2"
+      ],
+      "queries": {},
+      "title": "Train Station",
+      "campus": "College Ave Campus",
+      "lat": "40.49815",
+      "lon": "-74.44525",
+      "stopId": "1064"
+    },
+    "stuactcntrs": {
+      "routes": [
+        "s",
+        "wknd1"
+      ],
+      "queries": {},
+      "title": "Student Activities Center",
+      "campus": "College Ave Campus",
+      "lat": "40.50383",
+      "lon": "-74.44885",
+      "stopId": "1001"
+    },
+    "zimmerli_2": {
+      "routes": [
+        "s",
+        "wknd1"
+      ],
+      "queries": {},
+      "title": "Zimmerli Arts Museum",
+      "campus": "College Ave Campus",
+      "lat": "40.4996299",
+      "lon": "-74.4450499",
+      "stopId": "1017"
+    },
+    "stuactcntrn_2": {
+      "routes": [
+        "s",
+        "wknd1"
+      ],
+      "queries": {},
+      "title": "Student Activities Center",
+      "campus": "College Ave Campus",
+      "lat": "40.5039",
+      "lon": "-74.44883",
+      "stopId": "1061"
+    },
+    "nursscho": {
+      "routes": [
+        "w1",
+        "w2"
+      ],
+      "queries": {},
+      "title": "Nursing School",
+      "campus": "College Ave Campus",
+      "lat": "40.494289",
+      "lon": "-74.449676",
+      "stopId": "1070"
+    },
+    "colony": {
+      "routes": [
+        "w1",
+        "w2"
+      ],
+      "queries": {},
+      "title": "Colony House",
+      "campus": "College Ave Campus",
+      "lat": "40.50617",
+      "lon": "-74.46223",
+      "stopId": "1042"
+    },
+    "trainn": {
+      "routes": [
+        "w2",
+        "wknd1"
+      ],
+      "queries": {},
+      "title": "Train Station",
+      "campus": "College Ave Campus",
+      "lat": "40.4976798",
+      "lon": "-74.4445099",
+      "stopId": "1010"
+    },
+    "rutgerss": {
+      "routes": [
+        "wknd1",
+        "wknd2"
+      ],
+      "queries": {},
+      "title": "College Avenue Student Center",
+      "campus": "College Ave Campus",
+      "lat": "40.503222",
+      "lon": "-74.4519619",
+      "stopId": "1000"
+    },
+    "busch": {
+      "routes": [
+        "wknd1",
+        "wknd2"
+      ],
+      "queries": {},
+      "title": "Busch Student Center",
+      "campus": "Busch Campus",
+      "lat": "40.5234",
+      "lon": "-74.45796",
+      "stopId": "1056"
+    },
+    "livingston": {
+      "routes": [
+        "wknd1",
+        "wknd2"
+      ],
+      "queries": {},
+      "title": "Livingston Student Center",
+      "campus": "Livingston Campus",
+      "lat": "40.524",
+      "lon": "-74.4366299",
+      "stopId": "1058"
+    },
+    "college": {
+      "routes": [
+        "wknd1",
+        "wknd2"
+      ],
+      "queries": {},
+      "title": "College Hall",
+      "campus": "College Ave Campus",
+      "lat": "40.4858788",
+      "lon": "-74.4379873",
+      "stopId": "1015"
+    },
+    "stuactcntrn": {
+      "routes": [
+        "wknd2"
+      ],
+      "queries": {},
+      "title": "Student Activities Center",
+      "campus": "College Ave Campus",
+      "lat": "40.5039",
+      "lon": "-74.44883",
+      "stopId": "1001"
+    },
+    "pischoes": {
+      "routes": [
+        "rbhs"
+      ],
+      "queries": {},
+      "title": "RBHS Piscataway Hoes Lane",
+      "campus": "Busch Campus",
+      "lat": "40.5245699",
+      "lon": "-74.4700339"
+    },
+    "clinacad": {
+      "routes": [
+        "rbhs"
+      ],
+      "queries": {},
+      "title": "Clinical Academic Building",
+      "campus": "College Ave Campus",
+      "lat": "40.4941929",
+      "lon": "-74.4501711"
+    }
+  }
+}

@@ -15,7 +15,7 @@ import { routes, busImage, routeColors } from "../constants/clusters";
 const MyMapComponent = withScriptjs(
   withGoogleMap(props => (
     <GoogleMap
-      defaultZoom={13}
+      defaultZoom={18}
       defaultCenter={{
         lat: props.currentPos.lat,
         lng: props.currentPos.lng
@@ -40,7 +40,11 @@ export default class BusMap extends Component {
       this.setState({ routes });
     });
 
-    this.state = { vehicle: [], route: "" };
+    this.state = {
+      vehicle: [],
+      route: "",
+      description: { stopName: "", predictions: [] }
+    };
   }
 
   componentDidMount() {
@@ -67,7 +71,7 @@ export default class BusMap extends Component {
       });
       const { predictions } = await simpleFetch(stopEstimateQuery);
       let routeEstimate = [];
-      if (predictions) {
+      if (Array.isArray(predictions)) {
         predictions.map(stop => {
           if (stop.direction) {
             routeEstimate.push({
@@ -91,14 +95,29 @@ export default class BusMap extends Component {
   };
 
   togglePrediction = routeTag => {
-    let ret = "";
-    this.state.routeEstimate.map(data => {
-      if (data.tag === routeTag && data.predictions) {
-        ret = `${data.predictions.minutes} mins or ${
-          data.predictions.seconds
-        } seconds `;
-      }
-    });
+    var ret = {};
+    if (Array.isArray(this.state.routeEstimate)) {
+      this.state.routeEstimate.map(data => {
+        if (data.tag === routeTag && data.predictions) {
+          if (Array.isArray(data.predictions)) {
+            ret.stopName = data.title;
+            ret.predictions = [];
+            for (let prediction of data.predictions) {
+              ret.predictions.push(
+                `${prediction.minutes} mins or ${prediction.seconds} seconds`
+              );
+            }
+          } else {
+            ret.stopName = data.title;
+            ret.predictions = [
+              `${data.predictions.minutes} mins or ${
+                data.predictions.seconds
+              } seconds`
+            ];
+          }
+        }
+      });
+    }
     this.setState({ description: ret });
   };
   render() {
@@ -131,7 +150,7 @@ export default class BusMap extends Component {
         <Marker
           key={"stop_" + index}
           position={{ lat: Number(stop._lat), lng: Number(stop._lon) }}
-          onClick={() => this.togglePrediction(stop._tag)}
+          onClick={() => this.togglePrediction(stop._tag, stop._title)}
           geodesic={true}
         />
       ));
@@ -154,18 +173,6 @@ export default class BusMap extends Component {
           }}
         />
       ));
-      // if (Array.isArray(polylines)) polylines = flat(polylines);
-      // // console.log("new route", polylines);
-      // polylines = (
-      //   <Polyline
-      //     key={"path_" + this.state.route}
-      //     path={polylines}
-      //     geodesic={true}
-      //     options={{
-      //       strokeColor: routeColors[this.state.route]
-      //     }}
-      //   />
-      // );
     }
 
     return (
@@ -177,10 +184,10 @@ export default class BusMap extends Component {
           currentPos={currentPos}
           googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
           loadingElement={<div style={{ height: `100%` }} />}
-          containerElement={<div style={{ height: `400px` }} />}
+          containerElement={<div style={{ height: `400px`, width: "100%" }} />}
           mapElement={<div style={{ height: `100%` }} />}
         />
-        <div style={{ textAlign: "center", marginTop: "10%" }}>
+        <div style={{ textAlign: "center", marginTop: "5%" }}>
           <button
             onClick={this.refreshAndRetrieval}
             style={{
@@ -195,7 +202,13 @@ export default class BusMap extends Component {
             I am refresh
           </button>
           <h3>Bus Info: {this.state.route}</h3>
-          <h4>Bus Estimate: {this.state.description}</h4>
+          <div>
+            <h4>Bus Estimate: </h4>
+            <h5>Stop : {this.state.description.stopName}</h5>
+            {this.state.description.predictions.map((predic, index) => (
+              <h5 key={`predic_${index}`}>{predic}</h5>
+            ))}
+          </div>
         </div>
       </div>
     );

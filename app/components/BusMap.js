@@ -50,6 +50,7 @@ export default class BusMap extends Component {
   componentDidMount() {
     this.refreshAndRetrieval();
   }
+
   refreshAndRetrieval = async () => {
     /**
      * Bus real time locations
@@ -135,7 +136,6 @@ export default class BusMap extends Component {
           key={"bus_" + index}
           position={{ lat: Number(bus.lat), lng: Number(bus.lon) }}
           onClick={() => this.toggleBusInfo(bus.routeTag)}
-          geodesic={true}
           icon={busImage[bus.routeTag + "_" + calcHeading(Number(bus.heading))]}
         />
       ));
@@ -151,7 +151,6 @@ export default class BusMap extends Component {
           key={"stop_" + index}
           position={{ lat: Number(stop._lat), lng: Number(stop._lon) }}
           onClick={() => this.togglePrediction(stop._tag, stop._title)}
-          geodesic={true}
         />
       ));
     }

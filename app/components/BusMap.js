@@ -108,15 +108,19 @@ export default class BusMap extends Component {
      * Vehicles
      */
     let vehicle = this.state.vehicle;
-    const markers = vehicle.map((bus, index) => (
-      <Marker
-        key={"bus_" + index}
-        position={{ lat: Number(bus.lat), lng: Number(bus.lon) }}
-        onClick={() => this.toggleBusInfo(bus.routeTag)}
-        geodesic={true}
-        icon={busImage[bus.routeTag + "_" + calcHeading(Number(bus.heading))]}
-      />
-    ));
+    let markers;
+    if (vehicle) {
+      if (!Array.isArray(vehicle)) vehicle = [vehicle];
+      markers = vehicle.map((bus, index) => (
+        <Marker
+          key={"bus_" + index}
+          position={{ lat: Number(bus.lat), lng: Number(bus.lon) }}
+          onClick={() => this.toggleBusInfo(bus.routeTag)}
+          geodesic={true}
+          icon={busImage[bus.routeTag + "_" + calcHeading(Number(bus.heading))]}
+        />
+      ));
+    }
 
     /**
      * Stops
@@ -131,31 +135,37 @@ export default class BusMap extends Component {
           geodesic={true}
         />
       ));
-
-      /**
-       * Routes
-       */
-      var polylines;
-      if (this.state.route.length > 0) {
-        polylines = this.state.routes[this.state.route].map(path =>
-          path.point.map(point => ({
+    }
+    /**
+     * Routes
+     */
+    let polylines;
+    if (this.state.route.length > 0) {
+      polylines = this.state.routes[this.state.route].map((path, index) => (
+        <Polyline
+          key={`path_${this.state.route}_${index}`}
+          path={path.point.map(point => ({
             lat: Number(point.lat),
             lng: Number(point.lon)
-          }))
-        );
-        if (Array.isArray(polylines)) polylines = flat(polylines);
-        // console.log("new route", polylines);
-        polylines = (
-          <Polyline
-            key={"path_" + this.state.route}
-            path={polylines}
-            geodesic={true}
-            options={{
-              strokeColor: routeColors[this.state.route]
-            }}
-          />
-        );
-      }
+          }))}
+          geodesic={true}
+          options={{
+            strokeColor: routeColors[this.state.route]
+          }}
+        />
+      ));
+      // if (Array.isArray(polylines)) polylines = flat(polylines);
+      // // console.log("new route", polylines);
+      // polylines = (
+      //   <Polyline
+      //     key={"path_" + this.state.route}
+      //     path={polylines}
+      //     geodesic={true}
+      //     options={{
+      //       strokeColor: routeColors[this.state.route]
+      //     }}
+      //   />
+      // );
     }
 
     return (

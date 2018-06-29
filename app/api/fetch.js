@@ -1,6 +1,3 @@
-const host =
-  "http://webservices.nextbus.com/service/publicJSONFeed?command=vehicleLocations&a=rutgers&t=0";
-
 const getCall = {
   headers: new Headers({
     "Content-Type": "application/json"
@@ -8,8 +5,8 @@ const getCall = {
   method: "GET"
 };
 
-const simpleFetch = () =>
-  fetch(host, getCall).then(res =>
+const simpleFetch = url =>
+  fetch(url, getCall).then(res =>
     res.json().then(json => {
       if (res.status >= 400) {
         if (res.status === 401) {

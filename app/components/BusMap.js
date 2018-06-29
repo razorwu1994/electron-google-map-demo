@@ -5,7 +5,8 @@ import {
   withGoogleMap,
   GoogleMap,
   Marker,
-  Polyline
+  Polyline,
+  Polygon
 } from "react-google-maps";
 import { simpleFetch } from "../api/fetch";
 import { calcHeading } from "../utils/calc-heading";
@@ -30,19 +31,58 @@ const MyMapComponent = withScriptjs(
 export default class BusMap extends Component {
   constructor(props) {
     super(props);
+
+    const routeInfo =
+      "http://webservices.nextbus.com/service/publicJSONFeed?command=routeConfig&a=rutgers";
+    const routine = simpleFetch(routeInfo).then(json => {
+      let routes = json.route.map(route => ({ [route.tag]: route.path }));
+      routes = routes.reduce((a, b) => ({ ...a, ...b }), {});
+      this.setState({ routes });
+    });
+
     this.state = { vehicle: [], route: "" };
   }
+
   componentDidMount() {
     this.refreshAndRetrieval();
   }
-  refreshAndRetrieval = () => {
-    const ret = simpleFetch().then(data => {
-      const { lastTime, vehicle } = data;
-      this.setState({
-        lastTime: new Date(parseInt(lastTime.time, 10)),
-        vehicle
+  refreshAndRetrieval = async () => {
+    /**
+     * Bus real time locations
+     */
+    const busLoc =
+      "http://webservices.nextbus.com/service/publicJSONFeed?command=vehicleLocations&a=rutgers&t=0";
+    const { lastTime, vehicle } = await simpleFetch(busLoc);
+    // console.log("update map data");
+
+    /**
+     * Stop approaching time estimate
+     */
+    if (this.state.route.length > 0) {
+      let stopEstimateQuery =
+        "http://webservices.nextbus.com/service/publicJSONFeed?command=predictionsForMultiStops&a=rutgers";
+
+      routes[this.state.route].stop.map(stop => {
+        stopEstimateQuery += "&stops=" + this.state.route + "|" + stop._tag;
       });
-      console.log("update map data");
+      const { predictions } = await simpleFetch(stopEstimateQuery);
+      let routeEstimate = [];
+      if (predictions) {
+        predictions.map(stop => {
+          if (stop.direction) {
+            routeEstimate.push({
+              title: stop.stopTitle,
+              tag: stop.stopTag,
+              predictions: stop.direction.prediction
+            });
+          }
+        });
+      }
+      this.setState({ routeEstimate, loading: false });
+    }
+    this.setState({
+      lastTime: new Date(parseInt(lastTime.time, 10)),
+      vehicle
     });
   };
   toggleBusInfo = routeTag => {
@@ -50,6 +90,17 @@ export default class BusMap extends Component {
     this.setState({ route: routeTag });
   };
 
+  togglePrediction = routeTag => {
+    let ret = "";
+    this.state.routeEstimate.map(data => {
+      if (data.tag === routeTag && data.predictions) {
+        ret = `${data.predictions.minutes} mins or ${
+          data.predictions.seconds
+        } seconds `;
+      }
+    });
+    this.setState({ description: ret });
+  };
   render() {
     let currentPos = { lat: 40.49572, lng: -74.44396 };
 
@@ -62,6 +113,7 @@ export default class BusMap extends Component {
         key={"bus_" + index}
         position={{ lat: Number(bus.lat), lng: Number(bus.lon) }}
         onClick={() => this.toggleBusInfo(bus.routeTag)}
+        geodesic={true}
         icon={busImage[bus.routeTag + "_" + calcHeading(Number(bus.heading))]}
       />
     ));
@@ -75,7 +127,8 @@ export default class BusMap extends Component {
         <Marker
           key={"stop_" + index}
           position={{ lat: Number(stop._lat), lng: Number(stop._lon) }}
-          onClick={() => this.togglePrediction()}
+          onClick={() => this.togglePrediction(stop._tag)}
+          geodesic={true}
         />
       ));
 
@@ -84,19 +137,22 @@ export default class BusMap extends Component {
        */
       var polylines;
       if (this.state.route.length > 0) {
-        polylines = routes[this.state.route].path.map(path =>
+        polylines = this.state.routes[this.state.route].map(path =>
           path.point.map(point => ({
-            lat: Number(point._lat),
-            lng: Number(point._lon)
+            lat: Number(point.lat),
+            lng: Number(point.lon)
           }))
         );
         if (Array.isArray(polylines)) polylines = flat(polylines);
+        // console.log("new route", polylines);
         polylines = (
           <Polyline
             key={"path_" + this.state.route}
             path={polylines}
-            strokeWidth={1}
-            strokeColor={routeColors[this.state.route]}
+            geodesic={true}
+            options={{
+              strokeColor: routeColors[this.state.route]
+            }}
           />
         );
       }
@@ -129,6 +185,7 @@ export default class BusMap extends Component {
             I am refresh
           </button>
           <h3>Bus Info: {this.state.route}</h3>
+          <h4>Bus Estimate: {this.state.description}</h4>
         </div>
       </div>
     );

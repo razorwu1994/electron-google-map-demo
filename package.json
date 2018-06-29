@@ -1,10 +1,14 @@
 {
-  "name": "electron-react-boilerplate",
-  "productName": "ElectronReact",
-  "version": "0.13.3",
+  "name": "google-map-electron",
+  "productName": "GoogleMapRU",
+  "version": "0.0.1",
+  "main": "index.js",
   "description":
     "Electron application boilerplate based on React, React Router, Webpack, React Hot Loader for rapid application development",
   "scripts": {
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "postinstall": "electron-builder install-app-deps",
     "build": "concurrently \"npm run build-main\" \"npm run build-renderer\"",
     "build-dll":
       "cross-env NODE_ENV=development node --trace-warnings -r babel-register ./node_modules/webpack/bin/webpack --config webpack.config.renderer.dev.dll.js --colors",
@@ -42,7 +46,7 @@
   },
   "browserslist": "electron 1.6",
   "build": {
-    "productName": "ElectronReact",
+    "productName": "GoogleMapRU",
     "appId": "org.develar.ElectronReact",
     "files": [
       "dist/",
@@ -52,7 +56,11 @@
       "main.prod.js.map",
       "package.json"
     ],
+    "mac": {
+      "icon": "ScarlletKnight.icns"
+    },
     "dmg": {
+      "icon": "ScarlletKnight.icns",
       "contents": [
         {
           "x": 130,
@@ -78,19 +86,6 @@
       "output": "release"
     }
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chentsulin/electron-react-boilerplate.git"
-  },
-  "author": {
-    "name": "C. T. Lin",
-    "email": "chentsulin@gmail.com",
-    "url": "https://github.com/chentsulin"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/chentsulin/electron-react-boilerplate/issues"
-  },
   "keywords": [
     "electron",
     "boilerplate",
@@ -102,7 +97,6 @@
     "hot",
     "reload"
   ],
-  "homepage": "https://github.com/chentsulin/electron-react-boilerplate#readme",
   "jest": {
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
@@ -138,8 +132,9 @@
     "css-loader": "^0.28.11",
     "detect-port": "^1.2.3",
     "electron": "^2.0.3",
-    "electron-builder": "^20.14.7",
+    "electron-builder": "^20.18.0",
     "electron-devtools-installer": "^2.2.4",
+    "electron-packager": "^12.1.0",
     "electron-rebuild": "^1.7.3",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
